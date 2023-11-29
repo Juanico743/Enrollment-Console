@@ -26,7 +26,12 @@ unitsEnrolled = int(input("UNITS ENROLLED: "))
 # 4. 4thYR
 # 5. 5thYR
 yearLevel = input("YEAR LEVEL: ")
-print("")
+print("=" * 35 + "\n" +
+      "|"+f"{'1st Yr:':<33}" + "|\n" +
+     "|"+f"{'2nd Yr:':<33}" + "|\n" +
+     "|"+f"{'3rd Yr:':<33}" + "|\n" +
+     "|"+f"{'4th Yr:':<33}" + "|\n" +
+     "|"+f"{'5th Yr:':<33}" + "|\n" )
 
 # Get the FEES as a CHECKBOX with:
 # 1. LABORATORY FEE with te value of ???
