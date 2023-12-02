@@ -42,8 +42,16 @@ selectedScholarshipGrant = 0
 studentName = input("STUDENT NAME: ")
 
 # Get the student UNITS ENROLLED
-unitsEnrolled = int(input("UNITS ENROLLED: "))
-
+while True:
+    try:
+        unitsEnrolled = int(input("UNITS ENROLLED: "))
+        if chosenFees > 0:
+            break
+        else:
+            print("Try Again")
+    except (ValueError, NameError):
+        print("Try Again")
+            
 # Compute for the TOTAL UNIT in this formula:
 # TOTAL UNITS = ( UNITS ENROLLED *  COST PER UNIT)
 totalUnits = unitsEnrolled * costPerUnits
