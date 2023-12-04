@@ -77,16 +77,16 @@ print("=" * 35 + "\n" +
 
 while True:
     index = 1
-    box = "⬜   "
+    box = "⬜"
     totalFees = 0
     print("=" * 35 + "\n" +
           "FEES:")
     for key in fees:
         temp = box
         if index in selectedFees:
-            box = "🟦   "
+            box = "🟦"
             totalFees += fees[key]
-        print(f"{f'    {index}{box}  {key}':<35}")
+        print(f"{f'    {index}{box}   {key}':<35}")
         box = temp
         index += 1
     print("=" * 35)
@@ -131,7 +131,7 @@ print("=" * 35 + "\n" +
 
 while True:
     index = 1
-    radio = "⚪   "
+    radio = "⚪"
     totalDiscount = 0
     print("=" * 35 + "\n" +
           "SCHOLARSHIP GRANT:")
@@ -139,8 +139,8 @@ while True:
         temp = radio
         if index == selectedScholarshipGrant:
             totalDiscount += scholarshipGrant[key]
-            radio = "🔵   "
-        print(f"    {index}{radio}  {key}")
+            radio = "🔵"
+        print(f"    {index}{radio}   {key}")
         radio = temp
         index += 1
     print("=" * 35)
