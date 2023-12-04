@@ -45,13 +45,13 @@ studentName = input("STUDENT NAME: ")
 while True:
     try:
         unitsEnrolled = int(input("UNITS ENROLLED: "))
-        if chosenFees > 0:
+        if unitsEnrolled > 0:
             break
         else:
             print("Try Again")
     except (ValueError, NameError):
         print("Try Again")
-            
+
 # Compute for the TOTAL UNIT in this formula:
 # TOTAL UNITS = ( UNITS ENROLLED *  COST PER UNIT)
 totalUnits = unitsEnrolled * costPerUnits
@@ -77,14 +77,14 @@ print("=" * 35 + "\n" +
 
 while True:
     index = 1
-    box = "⬜️"
+    box = "⬜   "
     totalFees = 0
     print("=" * 35 + "\n" +
           "FEES:")
     for key in fees:
         temp = box
         if index in selectedFees:
-            box = "🟦"
+            box = "🟦   "
             totalFees += fees[key]
         print(f"{f'    {index}{box}  {key}':<35}")
         box = temp
@@ -131,7 +131,7 @@ print("=" * 35 + "\n" +
 
 while True:
     index = 1
-    radio = "⚪️"
+    radio = "⚪   "
     totalDiscount = 0
     print("=" * 35 + "\n" +
           "SCHOLARSHIP GRANT:")
@@ -139,7 +139,7 @@ while True:
         temp = radio
         if index == selectedScholarshipGrant:
             totalDiscount += scholarshipGrant[key]
-            radio = "🔵"
+            radio = "🔵   "
         print(f"    {index}{radio}  {key}")
         radio = temp
         index += 1
