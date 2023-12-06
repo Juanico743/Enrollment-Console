@@ -11,7 +11,7 @@ costPerUnits = 1811.37
 # 6. MISCELLANEOUS with the value of ₱ 7571.80
 fees = {"LABORATORY FEE": 6504.00,
         "REGISTRAR CARD": 1463.35,
-        "PUBLICATION???": 216.80,
+        "PUBLICATION": 216.80,
         "STUDENT COUNCIL": 500.00,
         "STUDENT ID": 108.40,
         "MISCELLANEOUS": 7571.80
