@@ -5,7 +5,7 @@ costPerUnits = 1811.37
 # Set FEES as Dictionary
 # 1. LABORATORY FEE with the value of ₱ 6504.00
 # 2. REGISTRAR CARD with the value of ₱ 1463.35
-# 3. PUBLICATION??? with the value of ₱ 216.80
+# 3. PUBLICATION with the value of ₱ 216.80
 # 4. STUDENT COUNCIL with the value of ₱ 500.00
 # 5. STUDENT ID with the value of ₱ 108.40
 # 6. MISCELLANEOUS with the value of ₱ 7571.80
@@ -61,14 +61,23 @@ print("=" * 25)
 for i in range(5):
     print("|" + f"{f'{i + 1} - {allYearLevel[i]}':^23}" + "|")
 print("=" * 25)
-yearLevel = input("YEAR LEVEL: ")
-print("")
+
+
+while True:
+    try:
+        yearLevel = int(input("YEAR LEVEL: "))
+        if 0 < yearLevel <=5:
+            break
+        else:
+            print("Try Again")
+    except (ValueError, NameError):
+        print("Try Again")
+
 
 # Get the FEES as a CHECKBOX
 # Display all the choices for the User
 # Ask the user to choose from 1 to 6 only and type "DONE" to stop the Checkbox loop
 # Set the all chosen FEES and add their value as TOTAL FEES
-
 print("=" * 35 + "\n" +
       "|" + f"{' NOTE:':<33}" + "|\n" +
       "|" + f"{' Select from 1-6':<33}" + "|\n" +
@@ -175,7 +184,6 @@ print("=" * 35 + "\n" +
       "|" + " " * 33 + "|\n" +
       "=" * 35 + "\n")
 
-
 # -----------------------------------
 
 
@@ -185,7 +193,7 @@ print("=" * 35 + "\n" +
 # Set FEES as Dictionary
 # 1. LABORATORY FEE with the value of ₱ 6504.00
 # 2. REGISTRAR CARD with the value of ₱ 1463.35
-# 3. PUBLICATION??? with the value of ₱ 216.80
+# 3. PUBLICATION with the value of ₱ 216.80
 # 4. STUDENT COUNCIL with the value of ₱ 500.00
 # 5. STUDENT ID with the value of ₱ 108.40
 # 6. MISCELLANEOUS with the value of ₱ 7571.80
