@@ -1,5 +1,6 @@
+
 # Set all value going to use
-# Set the COST PER UNIT
+# Set the COST PER UNIT with the value of ₱ 1300.00
 costPerUnits = 1300.00
 
 # Set FEES as Dictionary
@@ -21,9 +22,10 @@ fees = {"LABORATORY FEE": 6504.00,
 # 1. NON-SCHOLAR with the value of 0%
 # 2. FULL-SCHOLAR with the value of 100%
 # 3. PARTIAL-SCHOLAR with the value of 50%
+# 4. 20% SCHOLARSHIP GRANT with the value of 20%
 scholarshipGrant = {"NON-SCHOLAR": 0,
                     "FULL-SCHOLAR": 100,
-                    "PARTIAL-SCHOLAR": 50
+                    "PARTIAL-SCHOLAR": 50,
                     "20% SCHOLARSHIP GRANT": 20}
 
 # Set YEAR LEVEL as List
@@ -78,13 +80,11 @@ while True:
 # Display all the choices for the User
 # Ask the user to choose from 1 to 6 only and type "DONE" to stop the Checkbox loop
 # Set the all chosen FEES and add their value as TOTAL FEES
-print("=" * 35 + "\n" +
-      "|" + f"{' NOTE:':<33}" + "|\n" +
-      "|" + f"{' Select from 1-6':<33}" + "|\n" +
-      "|" + f"{' Type DONE if your already good.':<33}" + "|\n" +
-      "=" * 35)
-
 while True:
+    print("=" * 35 + "\n" +
+          "|" + f"{' NOTE:':<33}" + "|\n" +
+          "|" + f"{' Select from 1-6':<33}" + "|\n" +
+          "|" + f"{' Type DONE if your already good.':<33}" + "|")
     index = 1
     box = "⬜"
     totalFees = 0
@@ -106,7 +106,7 @@ while True:
             break
         else:
             chosenFees = int(chosenFees)
-        if 1 <= chosenFees <= 6:
+        if 1 <= chosenFees <= int(len(fees)):
             if chosenFees not in selectedFees:
                 selectedFees.append(chosenFees)
             else:
@@ -130,15 +130,14 @@ while True:
 
 # Get the SCHOLARSHIP GRANT as RADIO BUTTON
 # Display all the choices for the User
-# Ask the user to choose from 1 to 3 only
+# Ask the user to choose from 1 to 4 only
 # Set the chosen SCHOLARSHIP GRANT value as SCHOLARSHIP
-print("=" * 35 + "\n" +
-      "|" + f"{' NOTE:':<33}" + "|\n" +
-      "|" + f"{' Select from 1-3':<33}" + "|\n" +
-      "|" + f"{' Type DONE if your already good.':<33}" + "|\n" +
-      "=" * 35)
-
 while True:
+    print("=" * 35 + "\n" +
+          "|" + f"{' NOTE:':<33}" + "|\n" +
+          "|" + f"{' Select from 1-4':<33}" + "|\n" +
+          "|" + f"{' Type DONE if your already good.':<33}" + "|")
+
     index = 1
     radio = "⚪"
     totalDiscount = 0
@@ -160,7 +159,7 @@ while True:
             break
         else:
             chosenScholarship = int(chosenScholarship)
-        if 1 <= chosenScholarship <= 3:
+        if 1 <= chosenScholarship <= int(len(scholarshipGrant)):
             if chosenScholarship != selectedScholarshipGrant:
                 selectedScholarshipGrant = chosenScholarship
             else:
@@ -172,9 +171,9 @@ while True:
 print("")
 
 # Computer for TOTAL AMOUNT with this computation:
-# TOTAL AMOUNT = ( TOTAL UNITS + TOTAL FEES ) - (( TOTAL UNITS + TOTAL FEES ) / SCHOLARSHIP )
+# TOTAL AMOUNT = ( TOTAL UNITS - ( TOTAL UNITS  / SCHOLARSHIP ) + TOTAL FEES
 # Round it of to two Decimal Format it with comma seperator
-totalAmount = format(round((totalUnits + totalFees) - ((totalUnits + totalFees) / totalDiscount), 2), ',.2f')
+totalAmount = format(round(((totalUnits - (totalUnits / totalDiscount)) + totalFees), 2), ',.2f')
 
 # Print TOTAL AMOUNT
 # Stop the program
@@ -188,7 +187,7 @@ print("=" * 35 + "\n" +
 
 
 # Set all value going to use
-# Set the COST PER UNIT
+# Set the COST PER UNIT with the value of ₱ 1300.00
 
 # Set FEES as Dictionary
 # 1. LABORATORY FEE with the value of ₱ 6504.00
@@ -202,6 +201,7 @@ print("=" * 35 + "\n" +
 # 1. NON-SCHOLAR with the value of 0%
 # 2. FULL-SCHOLAR with the value of 100%
 # 3. PARTIAL-SCHOLAR with the value of 50%
+# 4. 20% SCHOLARSHIP GRANT with the value of 20%
 
 # Set YEAR LEVEL as List
 # 1. 1st Year
@@ -230,11 +230,11 @@ print("=" * 35 + "\n" +
 
 # Get the SCHOLARSHIP GRANT as RADIO BUTTON
 # Display all the choices for the User
-# Ask the user to choose from 1 to 3 only and type "DONE" to stop the Checkbox loop
+# Ask the user to choose from 1 to 4 only and type "DONE" to stop the Checkbox loop
 # Set the chosen SCHOLARSHIP GRANT value as SCHOLARSHIP
 
 # Computer for TOTAL AMOUNT with this computation:
-# TOTAL AMOUNT = ( TOTAL UNITS + TOTAL FEES ) - (( TOTAL UNITS + TOTAL FEES ) / SCHOLARSHIP )
+# TOTAL AMOUNT = ( TOTAL UNITS - ( TOTAL UNITS  / SCHOLARSHIP ) + TOTAL FEES
 
 # Print TOTAL AMOUNT
 # Stop the program
