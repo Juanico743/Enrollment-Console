@@ -1,6 +1,6 @@
 # Set all value going to use
 # Set the COST PER UNIT
-costPerUnits = 1811.37
+costPerUnits = 1300.00
 
 # Set FEES as Dictionary
 # 1. LABORATORY FEE with the value of ₱ 6504.00
@@ -24,7 +24,7 @@ fees = {"LABORATORY FEE": 6504.00,
 scholarshipGrant = {"NON-SCHOLAR": 0,
                     "FULL-SCHOLAR": 100,
                     "PARTIAL-SCHOLAR": 50
-                    }
+                    "20% SCHOLARSHIP GRANT": 20}
 
 # Set YEAR LEVEL as List
 # 1. 1st Year
