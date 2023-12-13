@@ -173,7 +173,7 @@ print("")
 # Computer for TOTAL AMOUNT with this computation:
 # TOTAL AMOUNT = ( TOTAL UNITS - ( TOTAL UNITS  / SCHOLARSHIP ) + TOTAL FEES
 # Round it of to two Decimal Format it with comma seperator
-totalAmount = format(round(((totalUnits - (totalUnits / totalDiscount)) + totalFees), 2), ',.2f')
+totalAmount = format(round(((totalUnits * (1 - (totalDiscount / 100))) + totalFees), 2), ',.2f')
 
 # Print TOTAL AMOUNT
 # Stop the program
