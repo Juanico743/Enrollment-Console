@@ -40,13 +40,14 @@ allYearLevel = ["1st Yr", "2nd Yr", "3rd Yr", "4th Yr", "5th Yr"]
 selectedFees = []
 selectedScholarshipGrant = 0
 
+
 # Get the STUDENT NAME
-studentName = input("STUDENT NAME: ")
+studentName = input("𝙎𝙏𝙐𝘿𝙀𝙉𝙏 𝙉𝘼𝙈𝙀: ")
 
 # Get the student UNITS ENROLLED
 while True:
     try:
-        unitsEnrolled = int(input("UNITS ENROLLED: "))
+        unitsEnrolled = int(input("𝙐𝙉𝙄𝙏𝙎 𝙀𝙉𝙍𝙊𝙇𝙇𝙀𝘿: "))
         if unitsEnrolled > 0:
             break
         else:
@@ -59,15 +60,15 @@ while True:
 totalUnits = unitsEnrolled * costPerUnits
 
 # Get the student YEAR LEVEL as COMBO BOX with:
-print("=" * 25)
+print("=" * 18)
 for i in range(5):
-    print("|" + f"{f'{i + 1} - {allYearLevel[i]}':^23}" + "|")
-print("=" * 25)
+    print("|" + f"{f'{i + 1} - {allYearLevel[i]}':^16}" + "|")
+print("=" * 18)
 
 
 while True:
     try:
-        yearLevel = int(input("YEAR LEVEL: "))
+        yearLevel = int(input("𝙔𝙀𝘼𝙍 𝙇𝙀𝙑𝙀𝙇: "))
         if 0 < yearLevel <=5:
             break
         else:
@@ -75,6 +76,7 @@ while True:
     except (ValueError, NameError):
         print("Try Again")
 
+selectedYearLevel = allYearLevel[yearLevel - 1]
 
 # Get the FEES as a CHECKBOX
 # Display all the choices for the User
@@ -89,7 +91,7 @@ while True:
     box = "⬜"
     totalFees = 0
     print("=" * 35 + "\n" +
-          "FEES:")
+          "𝙁𝙀𝙀𝙎:")
     for key in fees:
         temp = box
         if index in selectedFees:
@@ -113,7 +115,7 @@ while True:
                 print("Already Selected!!!")
                 while True:
                     try:
-                        removeFees = input("Do you want to remove it from selected. Type (YES or NO): ")
+                        removeFees = input("Do you want to remove it from selected. Type (𝗬𝗘𝗦 or 𝗡𝗢): ")
                         if removeFees in ["YES", "Yes", "yes", "Y", "y"]:
                             selectedFees.remove(chosenFees)
                             break
@@ -142,7 +144,7 @@ while True:
     radio = "⚪"
     totalDiscount = 0
     print("=" * 35 + "\n" +
-          "SCHOLARSHIP GRANT:")
+          "𝙎𝘾𝙃𝙊𝙇𝘼𝙍𝙎𝙃𝙄𝙋 𝙂𝙍𝘼𝙉𝙏:")
     for key in scholarshipGrant:
         temp = radio
         if index == selectedScholarshipGrant:
@@ -156,7 +158,11 @@ while True:
     try:
         chosenScholarship = input("SELECT: ")
         if chosenScholarship in ["DONE", "Done", "done"]:
-            break
+            if selectedScholarshipGrant != 0:
+                break
+            else:
+                print("Please Select One!!!")
+                chosenScholarship = 0
         else:
             chosenScholarship = int(chosenScholarship)
         if 1 <= chosenScholarship <= int(len(scholarshipGrant)):
@@ -168,7 +174,7 @@ while True:
             print("Try Again")
     except (ValueError, NameError):
         print("Try Again")
-print("")
+print("\n \n \n")
 
 # Computer for TOTAL AMOUNT with this computation:
 # TOTAL AMOUNT = ( TOTAL UNITS - ( TOTAL UNITS  / SCHOLARSHIP ) + TOTAL FEES
@@ -177,6 +183,27 @@ totalAmount = format(round(((totalUnits * (1 - (totalDiscount / 100))) + totalFe
 
 # Print TOTAL AMOUNT
 # Stop the program
+print("=" * 35 + "\n" +
+      "𝙎𝙏𝙐𝘿𝙀𝙉𝙏 𝙄𝙉𝙁𝙊")
+print(f"Student Name:     {studentName}\n" +
+      f"Units Enrolled:   {unitsEnrolled}\n" +
+      f"Year Level:       {selectedYearLevel}")
+print("-" * 35 + "\n" +
+      "𝙎𝙀𝙇𝙀𝘾𝙏𝙀𝘿 𝙁𝙀𝙀𝙎")
+index = 1
+for key in fees:
+    if index in selectedFees:
+        print(" ‣ " + key)
+    index += 1
+print("-" * 35 + "\n" +
+      "𝙎𝙀𝙇𝙀𝘾𝙏𝙀𝘿 𝙎𝘾𝙃𝙊𝙇𝘼𝙍𝙎𝙃𝙄𝙋 𝙂𝙍𝘼𝙉𝙏")
+index = 1
+for key in scholarshipGrant:
+    if index == selectedScholarshipGrant:
+        print(" ‣ " + key)
+    index += 1
+print("=" * 35)
+
 print("=" * 35 + "\n" +
       "|" + " " * 33 + "|\n" +
       "| TOTAL AMOUNT: " + f"{f'₱ {totalAmount}':^18}" + "|\n" +
